@@ -16,7 +16,7 @@ The bones of the game would consist of the following:
   ...combat system
 
 Copyrighted material from the original Darklands game is to be avoided, including art, writing and other original ideas of the game.
-Thankfully much of the material is based off historical records so is not subject to copyright.
+Thankfully much of the game is based off historical records so is not subject to copyright.
 
 I've picked the MIT licence for this project which means it can be distributed and modified freely and can also be used for commercial software.
 
@@ -24,7 +24,7 @@ This is all an experiment and a bit of fun for me. I don't have any experience c
 Glen gsm@mailbox.org
 
 **How to download and use these files**
-1) Above the list of files on the right there is a green "CODE" button, and once clicked on select the option at the bottom "Download ZIP"
+1) Above the list of files on the right there is a green "Code" button. Once clicked, select the option at the bottom: "Download ZIP"
 2) Extract the ZIP file
 3) Download, install and start Godot 4 (currently I'm using Godot 4.2.1)
 4) Import the Godot.Project file from the extracted ZIP file
