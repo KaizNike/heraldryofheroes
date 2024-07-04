@@ -1,4 +1,4 @@
-# heraldryofheroes
+**About**
 Heraldry of Heroes: a game inspired by Darklands (Microprose, 1992), built in Godot game engine (V4.2.1)
 
 This is an attempt to first create the bones of the game which can later be fleshed out with art and story in the form of 'scenerios'.
@@ -15,15 +15,13 @@ The bones of the game would consist of the following:
   ...saints and alchemy systems
   ...combat system
 
-The main challenge is to create a fun and challenging combat system.
-So far I've experimented with top-down view, turn-based combat that emphasizes footwork and balance (which foot the character has most of their weight on determines where they can move next)
-But I'm not happy with where it's going so will think some more before committing too much time to this.
-
-Others notes:
 Copyrighted material from the original Darklands game is to be avoided, including art, writing and other original ideas of the game.
 Thankfully much of the material is based off historical records so is not subject to copyright.
 
-I've picked the MIT licence for this project. 
+I've picked the MIT licence for this project which means it can be distributed and modified freely and can also be used for commercial software.
 
 This is all an experiment and a bit of fun for me. I don't have any experience creating games or with Github so please let me know if you have any suggestions or would like to help with the project.
 Glen gsm@mailbox.org
+
+**How to download and use these files**
+1)
