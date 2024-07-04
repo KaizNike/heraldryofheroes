@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cijj6wbdg757g"]
+
+[ext_resource type="Script" path="res://data/Data.gd" id="1_osmwg"]
+[ext_resource type="Script" path="res://data/Items.gd" id="3_ostdh"]
+[ext_resource type="Script" path="res://data/PC.gd" id="4_bmokn"]
+
+[node name="Data" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_osmwg")
+
+[node name="Items" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ostdh")
+
+[node name="PC1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_bmokn")
+
+[node name="PC2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_bmokn")
+
+[node name="PC3" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_bmokn")
+
+[node name="PC4" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_bmokn")
+
+[node name="PC5" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_bmokn")
