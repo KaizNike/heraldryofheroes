@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bd3ekwp8rh17e"]
+
+[ext_resource type="FontFile" uid="uid://wbfoewf7sgiw" path="res://themes/GL-StellaMystica-$@.ttf" id="1_ugfii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrjqv"]
+bg_color = Color(0.0666667, 0.145098, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxktt"]
+bg_color = Color(0.0313726, 0.0862745, 0.54902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12qq5"]
+bg_color = Color(0, 0.0352941, 0.321569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl58e"]
+bg_color = Color(0.0312505, 0.0859693, 0.549096, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kml0h"]
+bg_color = Color(1, 0.52549, 0.105882, 1)
+
+[resource]
+default_font = ExtResource("1_ugfii")
+default_font_size = 25
+Button/styles/disabled = SubResource("StyleBoxFlat_hrjqv")
+Button/styles/hover = SubResource("StyleBoxFlat_bxktt")
+Button/styles/normal = SubResource("StyleBoxFlat_12qq5")
+ItemList/colors/font_color = Color(0.662745, 0.752941, 1, 1)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_yl58e")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_kml0h")
