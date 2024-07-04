@@ -24,4 +24,8 @@ This is all an experiment and a bit of fun for me. I don't have any experience c
 Glen gsm@mailbox.org
 
 **How to download and use these files**
-1)
+1) Above the list of files on the right there is a green "CODE" button, and once clicked on select the option at the bottom "Download ZIP"
+2) Extract the ZIP file
+3) Download, install and start Godot 4 (currently I'm using Godot 4.2.1)
+4) Import the Godot.Project file from the extracted ZIP file
+5) Open the project and press F5 to run it
