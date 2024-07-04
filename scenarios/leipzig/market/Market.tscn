@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0so7abvyapja"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_e1aup"]
+[ext_resource type="Texture2D" uid="uid://chtrdb36vhyth" path="res://scenarios/leipzig/market/Market-SD.jpg" id="2_8wqlq"]
+[ext_resource type="Script" path="res://scenarios/leipzig/market/Market.gd" id="3_aoyhg"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="3_iofhq"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="4_bvxek"]
+[ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="6_jhad3"]
+
+[node name="Market" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_e1aup")
+texture = ExtResource("2_8wqlq")
+script = ExtResource("3_aoyhg")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_iofhq")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_bvxek")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1210.0
+offset_bottom = 418.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are in Leipzig's central market. You stroll towards..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="GeneralTrader" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...a store selling general goods."
+flat = true
+alignment = 0
+
+[node name="Bootmaker" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...a bootmaker's workshop."
+flat = true
+alignment = 0
+
+[node name="Tavern" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...a tavern selling food and beer."
+flat = true
+alignment = 0
+
+[node name="Fugger" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...the offices of the Fugger."
+flat = true
+alignment = 0
+
+[node name="Medici" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...the offices of the Medici."
+flat = true
+alignment = 0
+
+[node name="Hanse" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...the offices of the Hanse."
+flat = true
+alignment = 0
+
+[node name="WealthyMerchant" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...the houses of some of the city's wealthiest merchants."
+flat = true
+alignment = 0
+
+[node name="MainSt" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...the main street."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+
+[node name="Audio" parent="." instance=ExtResource("6_jhad3")]
+
+[connection signal="pressed" from="TextBox/Options/GeneralTrader" to="." method="_on_general_trader_pressed"]
+[connection signal="pressed" from="TextBox/Options/Bootmaker" to="." method="_on_bootmaker_pressed"]
+[connection signal="pressed" from="TextBox/Options/Tavern" to="." method="_on_tavern_pressed"]
+[connection signal="pressed" from="TextBox/Options/Fugger" to="." method="_on_fugger_pressed"]
+[connection signal="pressed" from="TextBox/Options/Medici" to="." method="_on_medici_pressed"]
+[connection signal="pressed" from="TextBox/Options/Hanse" to="." method="_on_hanse_pressed"]
+[connection signal="pressed" from="TextBox/Options/WealthyMerchant" to="." method="_on_wealthy_merchant_pressed"]
+[connection signal="pressed" from="TextBox/Options/MainSt" to="." method="_on_main_st_pressed"]

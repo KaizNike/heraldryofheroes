@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://byp1y7puqwed4"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_mk53l"]
+[ext_resource type="Texture2D" uid="uid://jloljcpw2hj1" path="res://scenarios/leipzig/gate_outside/GateOutside.jpg" id="2_6xeyu"]
+[ext_resource type="Script" path="res://scenarios/leipzig/gate_outside/GateOutside.gd" id="3_htpsq"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="4_u10nm"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="5_qrxlv"]
+[ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="6_627xu"]
+[ext_resource type="AudioStream" uid="uid://dkh7g7q7wsq7h" path="res://audio/music/lhomme.ogg" id="7_ehflq"]
+
+[node name="GateOutside" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_mk53l")
+texture = ExtResource("2_6xeyu")
+script = ExtResource("3_htpsq")
+
+[node name="FadePanel" parent="." instance=ExtResource("4_u10nm")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("5_qrxlv")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1299.0
+offset_bottom = 336.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are outside the main gate leading into Leipzig. A pair of guards watch the coming and going of townsfolk, travelers and traders. A porter collects a small toll for each person and animal entering the city. You decide to..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="GateInside" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...confidently approach the gates, pay the toll, and enter into Leipzig's main street."
+flat = true
+alignment = 0
+
+[node name="GateInsideSneak" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...attempt to enter the city amongst a group of travelers, to reduce the chance of the guards recognizing you."
+flat = true
+alignment = 0
+
+[node name="GateInsidePersuade" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...try to convince the porter to admit your party without paying the toll."
+flat = true
+alignment = 0
+
+[node name="Highway" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...turn back and follow the main highway away from the city."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Audio" parent="." instance=ExtResource("6_627xu")]
+stream = ExtResource("7_ehflq")
+
+[connection signal="pressed" from="TextBox/Options/GateInside" to="." method="_on_gate_inside_pressed"]
+[connection signal="pressed" from="TextBox/Options/GateInsideSneak" to="." method="_on_gate_inside_sneak_pressed"]
+[connection signal="pressed" from="TextBox/Options/GateInsidePersuade" to="." method="_on_gate_inside_persuade_pressed"]
