@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjhcs0qfhn7w5"]
+[gd_scene load_steps=8 format=3 uid="uid://bjhcs0qfhn7w5"]
 
 [ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_1qaeg"]
-[ext_resource type="Texture2D" uid="uid://duyoy37qr2jq3" path="res://scenarios/leipzig/square/Square.jpg" id="2_rn4ga"]
+[ext_resource type="Texture2D" uid="uid://ddtxo5mbt2o53" path="res://scenarios/leipzig/square/Square-SD.jpg" id="2_3saf1"]
 [ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="3_mh0l7"]
 [ext_resource type="Script" path="res://scenarios/leipzig/square/Square.gd" id="3_nwyeo"]
 [ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="4_bcmuq"]
 [ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="6_lw6bf"]
+[ext_resource type="AudioStream" uid="uid://basfnp0nbwx2y" path="res://audio/music/venicrea.ogg" id="7_o4b0y"]
 
 [node name="Square" type="TextureRect"]
 offset_left = 40.0
@@ -13,7 +14,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 theme = ExtResource("1_1qaeg")
-texture = ExtResource("2_rn4ga")
+texture = ExtResource("2_3saf1")
 script = ExtResource("3_nwyeo")
 
 [node name="FadePanel" parent="." instance=ExtResource("3_mh0l7")]
@@ -71,6 +72,7 @@ layout_mode = 2
 autowrap_mode = 2
 
 [node name="Audio" parent="." instance=ExtResource("6_lw6bf")]
+stream = ExtResource("7_o4b0y")
 
 [connection signal="pressed" from="TextBox/Options/Rathaus" to="." method="_on_rathaus_pressed"]
 [connection signal="pressed" from="TextBox/Options/MainSt" to="." method="_on_main_st_pressed"]

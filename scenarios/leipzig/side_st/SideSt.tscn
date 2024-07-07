@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://djug1hgpd6grh"]
 
 [ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_8u74k"]
+[ext_resource type="Texture2D" uid="uid://db64uia8i1as4" path="res://scenarios/leipzig/side_st/SideSt-SD.jpg" id="2_8owsn"]
 [ext_resource type="Script" path="res://scenarios/leipzig/side_st/SideSt.gd" id="2_qhdan"]
-[ext_resource type="Texture2D" uid="uid://brkiioosxxusg" path="res://scenarios/leipzig/side_st/SideSt.jpg" id="2_w0x77"]
 [ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="3_rrrk8"]
 [ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="4_1dxn7"]
 [ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="6_iic1m"]
@@ -13,7 +13,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 theme = ExtResource("1_8u74k")
-texture = ExtResource("2_w0x77")
+texture = ExtResource("2_8owsn")
 script = ExtResource("2_qhdan")
 
 [node name="FadePanel" parent="." instance=ExtResource("3_rrrk8")]

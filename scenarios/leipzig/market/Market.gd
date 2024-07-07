@@ -86,7 +86,7 @@ func fade_in_scenery():
 		texture = load("res://scenarios/leipzig/market/Market-SD.jpg")
 		fade_player.play("fade_in_light")
 	else:
-		texture = load("res://scenarios/leipzig/market/Market-SD.jpg")
+		texture = load("res://scenarios/leipzig/market/Market-SN.jpg")
 		fade_player.play("fade_in_dark")
 	
 func fade_in_text():

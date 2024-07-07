@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckgg5wxounfx"]
 
 [ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_j7j6s"]
-[ext_resource type="Texture2D" uid="uid://dc1btsw1wk24y" path="res://scenarios/leipzig/metalworkers/Metalworkers.jpg" id="2_6rcmi"]
+[ext_resource type="Texture2D" uid="uid://c7ieksoqxhkwu" path="res://scenarios/leipzig/metalworkers/Metalworkers-SD.jpg" id="2_a758t"]
 [ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="3_brnmk"]
 [ext_resource type="Script" path="res://scenarios/leipzig/metalworkers/Metalworkers.gd" id="3_vi4x7"]
 [ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="4_ph7f7"]
@@ -13,7 +13,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 theme = ExtResource("1_j7j6s")
-texture = ExtResource("2_6rcmi")
+texture = ExtResource("2_a758t")
 script = ExtResource("3_vi4x7")
 
 [node name="FadePanel" parent="." instance=ExtResource("3_brnmk")]
