@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://tlvugvt058bs"]
+
+[ext_resource type="Theme" uid="uid://cmyjgwqt37tx7" path="res://themes/germanica_notes_sheet.tres" id="1_vutcm"]
+[ext_resource type="Script" path="res://main/NotesSheet.gd" id="2_gshpf"]
+[ext_resource type="Texture2D" uid="uid://b2ijovey4cwa0" path="res://images/frames/NotesSheet.jpg" id="2_jepy4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7h3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17xag"]
+
+[node name="NotesSheet" type="TextureRect" groups=["sheets"]]
+custom_minimum_size = Vector2(1520, 1000)
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_vutcm")
+texture = ExtResource("2_jepy4")
+script = ExtResource("2_gshpf")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(1480, 920)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1500.0
+offset_bottom = 980.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7h3d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17xag")
+wrap_mode = 1

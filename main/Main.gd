@@ -72,6 +72,9 @@ func _unhandled_key_input(event):
 		show_sheet(4)
 	elif Input.is_key_pressed(KEY_5):
 		show_sheet(5)
+	elif Input.is_key_pressed(KEY_F1):
+		pc_button_disable(0)
+		overlay_scene("res://main/NotesSheet.tscn")
 	else:
 		return
 	get_viewport().set_input_as_handled()
@@ -91,6 +94,11 @@ func _on_pc_4_button_down():
 func _on_pc_5_button_down():
 	show_sheet(5)
 
+func show_sheet(pc):
+	get_tree().call_group("sheets", "save_and_close")
+	pc_button_disable(pc)
+	overlay_scene("res://main/PCSheet.tscn")
+
 func pc_button_disable(i):
 	pc1.disabled = false
 	pc2.disabled = false
@@ -99,18 +107,16 @@ func pc_button_disable(i):
 	pc5.disabled = false
 	if i == 1 or pc1.visible == false:
 		pc1.disabled = true
-	if i == 2 or pc2.visible == false:
+	elif i == 2 or pc2.visible == false:
 		pc2.disabled = true
-	if i == 3 or pc3.visible == false:
+	elif i == 3 or pc3.visible == false:
 		pc3.disabled = true
-	if i == 4 or pc4.visible == false:
+	elif i == 4 or pc4.visible == false:
 		pc4.disabled = true
-	if i == 5 or pc5.visible == false:
+	elif i == 5 or pc5.visible == false:
 		pc5.disabled = true
-
-func show_sheet(pc):
-	pc_button_disable(pc)
-	overlay_scene("res://main/PCSheet.tscn")
+	else:
+		pass
 
 func pc_button_hide(pc):
 	get_node(pc).visible = false
@@ -127,3 +133,6 @@ func update_boxes():
 		
 	if get_node("HBox/Party/PC4Frame/PC4").visible == true:
 		get_node("HBox/Party/PC4Frame/PC4").update_box("PC4")
+		
+	if get_node("HBox/Party/PC5Frame/PC5").visible == true:
+		get_node("HBox/Party/PC5Frame/PC5").update_box("PC5")

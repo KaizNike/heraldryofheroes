@@ -1,7 +1,7 @@
 extends TextureRect
 
 #shortcuts for accessing nodes
-@onready var party = Data.get_node("Party")
+@onready var party_stats = get_node("HBox/PartyStatsFrame")
 @onready var party_inventory = get_node("HBox/InventoryFrame/PartyInventory")
 @onready var helmet_slot = get_node("HBox/CharacterFrame/Character/HelmetSlot")
 @onready var vest_slot = get_node("HBox/CharacterFrame/Character/VestSlot")
@@ -247,7 +247,7 @@ func unequip_item(slot):
 func set_item_tooltip(slot):
 	var item_name = slot.get_item_text(0)
 	if item_name != "Empty":
-		var item_info = Data.get_node("Items").item_dict[item_name.get_slice("@",0)]
+		var item_info = Data.get_node("Items").item_dict[item_name]
 		var weight = item_info.get_slice("/",0)
 		var value = item_info.get_slice("/",1)
 		slot.set_item_tooltip(0, item_name + "\nWeight: " + weight + "\n" + "Value: " + value)

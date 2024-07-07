@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://by0ndk2ly75ja"]
 
-[ext_resource type="Theme" uid="uid://4xakigboy4d4" path="res://themes/gothic_pc_sheet.tres" id="1_wvb8i"]
-[ext_resource type="Script" path="res://main/PCSheet.gd" id="2_igi5v"]
-[ext_resource type="Texture2D" uid="uid://fuc828eaqhhy" path="res://images/frames/PartyFrame.png" id="2_jnion"]
-[ext_resource type="Texture2D" uid="uid://03r83g6kcb5s" path="res://images/frames/PCSheetPaper.jpg" id="2_jpt51"]
+[ext_resource type="Theme" uid="uid://4xakigboy4d4" path="res://themes/gothic_pc_sheet.tres" id="1_ebau0"]
+[ext_resource type="Texture2D" uid="uid://03r83g6kcb5s" path="res://images/frames/PCSheetPaper.jpg" id="2_yj2jf"]
+[ext_resource type="Script" path="res://main/PCSheet.gd" id="3_55eye"]
+[ext_resource type="Texture2D" uid="uid://fuc828eaqhhy" path="res://images/frames/PartyFrame.png" id="4_a7imc"]
 
-[node name="PCSheet" type="TextureRect"]
+[node name="PCSheet" type="TextureRect" groups=["sheets"]]
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 mouse_filter = 0
-theme = ExtResource("1_wvb8i")
-texture = ExtResource("2_jpt51")
-script = ExtResource("2_igi5v")
+theme = ExtResource("1_ebau0")
+texture = ExtResource("2_yj2jf")
+script = ExtResource("3_55eye")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -24,7 +24,7 @@ theme_override_constants/separation = 0
 [node name="PartyStatsFrame" type="NinePatchRect" parent="HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_jnion")
+texture = ExtResource("4_a7imc")
 draw_center = false
 patch_margin_left = 10
 patch_margin_top = 10
@@ -34,7 +34,7 @@ patch_margin_bottom = 10
 [node name="InventoryFrame" type="NinePatchRect" parent="HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_jnion")
+texture = ExtResource("4_a7imc")
 draw_center = false
 patch_margin_left = 10
 patch_margin_top = 10
@@ -71,7 +71,7 @@ offset_bottom = 85.0
 [node name="CharacterFrame" type="NinePatchRect" parent="HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_jnion")
+texture = ExtResource("4_a7imc")
 draw_center = false
 patch_margin_left = 10
 patch_margin_top = 10
@@ -247,7 +247,7 @@ size_flags_horizontal = 0
 [node name="SkillsFrame" type="NinePatchRect" parent="HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_jnion")
+texture = ExtResource("4_a7imc")
 draw_center = false
 patch_margin_left = 10
 patch_margin_top = 10
