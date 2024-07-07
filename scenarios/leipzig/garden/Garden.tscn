@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bprdm2kuleux2"]
+[gd_scene load_steps=7 format=3 uid="uid://bprdm2kuleux2"]
 
 [ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_s3l0n"]
 [ext_resource type="Script" path="res://scenarios/leipzig/garden/Garden.gd" id="2_707uv"]
+[ext_resource type="Texture2D" uid="uid://t3wm2e6o0ekj" path="res://scenarios/leipzig/garden/Garden-SD.jpg" id="2_mx7gk"]
 [ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="3_7jo5a"]
 [ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="4_op1t0"]
 [ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="5_8fy6b"]
@@ -12,6 +13,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 theme = ExtResource("1_s3l0n")
+texture = ExtResource("2_mx7gk")
 script = ExtResource("2_707uv")
 
 [node name="FadePanel" parent="." instance=ExtResource("3_7jo5a")]

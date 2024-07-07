@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dckr3tncgo0q1"]
 
 [ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_gtjdx"]
-[ext_resource type="Texture2D" uid="uid://gl7vtu1ucsth" path="res://scenarios/leipzig/gate_inside/GateInside.jpg" id="2_5jo4j"]
+[ext_resource type="Texture2D" uid="uid://cl822taf781ed" path="res://scenarios/leipzig/gate_inside/GateInside-SD.jpg" id="2_gf0nw"]
 [ext_resource type="Script" path="res://scenarios/leipzig/gate_inside/GateInside.gd" id="3_5kp4l"]
 [ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="4_1tn7t"]
 [ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="5_wudy6"]
@@ -13,7 +13,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 theme = ExtResource("1_gtjdx")
-texture = ExtResource("2_5jo4j")
+texture = ExtResource("2_gf0nw")
 script = ExtResource("3_5kp4l")
 
 [node name="FadePanel" parent="." instance=ExtResource("4_1tn7t")]

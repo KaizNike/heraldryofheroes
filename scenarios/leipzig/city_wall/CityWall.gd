@@ -47,10 +47,10 @@ func _unhandled_input(event):
 func fade_in_scenery():
 	$FadePanel.visible = true
 	if Data.time > 6 and Data.time < 18:
-		texture = load("res://scenarios/leipzig/city_wall/CityWall.jpg")
+		texture = load("res://scenarios/leipzig/city_wall/CityWall-SD.jpg")
 		fade_player.play("fade_in_light")
 	else:
-		texture = load("res://scenarios/leipzig/city_wall/CityWall.jpg")
+		texture = load("res://scenarios/leipzig/city_wall/CityWall-SN.jpg")
 		fade_player.play("fade_in_dark")
 	
 func fade_in_text():

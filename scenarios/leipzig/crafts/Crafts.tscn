@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dblviym5ujm0g"]
 
 [ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_r78hv"]
-[ext_resource type="Texture2D" uid="uid://cl2kedctfxlm4" path="res://scenarios/leipzig/crafts/Crafts.jpg" id="2_sivsl"]
+[ext_resource type="Texture2D" uid="uid://bpkspuyr4focg" path="res://scenarios/leipzig/crafts/Crafts-SD.jpg" id="2_tapha"]
 [ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="3_j45cm"]
 [ext_resource type="Script" path="res://scenarios/leipzig/crafts/Crafts.gd" id="3_rimlo"]
 [ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="4_c7r5w"]
@@ -13,7 +13,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 1040.0
 theme = ExtResource("1_r78hv")
-texture = ExtResource("2_sivsl")
+texture = ExtResource("2_tapha")
 script = ExtResource("3_rimlo")
 
 [node name="FadePanel" parent="." instance=ExtResource("3_j45cm")]
