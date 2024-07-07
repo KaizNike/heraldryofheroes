@@ -28,48 +28,55 @@ func _ready():
 	pass
 
 func save_game():
-	var save_file = FileAccess.open("user://pc1_save.save", FileAccess.WRITE)
+	var save_file = FileAccess.open("user://pc1.save", FileAccess.WRITE)
 	var a_dict = get_node("PC1").save_dict()
 	var json_string = JSON.stringify(a_dict)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://pc2_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://pc2.save", FileAccess.WRITE)
 	a_dict = get_node("PC2").save_dict()
 	json_string = JSON.stringify(a_dict)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://pc3_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://pc3.save", FileAccess.WRITE)
 	a_dict = get_node("PC3").save_dict()
 	json_string = JSON.stringify(a_dict)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://pc4_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://pc4.save", FileAccess.WRITE)
 	a_dict = get_node("PC4").save_dict()
 	json_string = JSON.stringify(a_dict)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://pc5_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://pc5.save", FileAccess.WRITE)
 	a_dict = get_node("PC5").save_dict()
 	json_string = JSON.stringify(a_dict)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://inventory_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://inventory.save", FileAccess.WRITE)
 	json_string = JSON.stringify(inventory)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://stats_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://stats.save", FileAccess.WRITE)
 	json_string = JSON.stringify(stats)
 	save_file.store_line(json_string)
 	save_file.close()
 	
-	save_file = FileAccess.open("user://time_save.save", FileAccess.WRITE)
+	save_file = FileAccess.open("user://time.save", FileAccess.WRITE)
 	json_string = JSON.stringify(time_dict)
+	save_file.store_line(json_string)
+	save_file.close()
+
+func save_notes(text):
+	var save_file = FileAccess.open("user://notes.save", FileAccess.WRITE)
+	var a_dict = {"notes":text}
+	var json_string = JSON.stringify(a_dict)
 	save_file.store_line(json_string)
 	save_file.close()
 
