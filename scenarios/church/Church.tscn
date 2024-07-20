@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cakq1u4vo35ci"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_0gmpu"]
+[ext_resource type="Script" path="res://scenarios/leipzig/church/Church.gd" id="3_cnlfj"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="4_kes0u"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="5_a557m"]
+[ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="6_fccfd"]
+
+[node name="Church" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_0gmpu")
+script = ExtResource("3_cnlfj")
+
+[node name="FadePanel" parent="." instance=ExtResource("4_kes0u")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("5_a557m")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1210.0
+offset_bottom = 178.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are inside the main church of Leipzig. While here you..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="LatinQuarter" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...exit via the main door back to the Latin Quarter."
+flat = true
+alignment = 0
+
+[node name="Garden" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...exit via the side door leading to secluded garden."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+
+[node name="Audio" parent="." instance=ExtResource("6_fccfd")]
+stream = null
+
+[connection signal="pressed" from="TextBox/Options/LatinQuarter" to="." method="_on_latin_quarter_pressed"]
+[connection signal="pressed" from="TextBox/Options/Garden" to="." method="_on_garden_pressed"]

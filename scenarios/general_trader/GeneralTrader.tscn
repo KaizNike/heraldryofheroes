@@ -1,0 +1,243 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0s6ns815q2ri"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_i5lbu"]
+[ext_resource type="Script" path="res://scenarios/leipzig/general_trader/GeneralTrader.gd" id="1_kdhgu"]
+[ext_resource type="Texture2D" uid="uid://cy4ys6gt6fb3t" path="res://images/frames/ScenarioDivider.png" id="1_p3yu8"]
+[ext_resource type="Texture2D" uid="uid://cbgq4cftjabt4" path="res://scenarios/leipzig/general_trader/PartyBags.jpg" id="2_d4yn1"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_instanced_scenes/FadePanel.tscn" id="2_hslur"]
+[ext_resource type="Texture2D" uid="uid://dcdvk7t6exoi8" path="res://scenarios/leipzig/general_trader/ShopTable.jpg" id="3_prgns"]
+[ext_resource type="Texture2D" uid="uid://bm3vucb5p86bd" path="res://scenarios/leipzig/general_trader/Merchant.jpg" id="4_6uac3"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_instanced_scenes/TextBox.tscn" id="7_ohxb0"]
+[ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="9_r264l"]
+
+[node name="GeneralTrader" type="MarginContainer"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_i5lbu")
+script = ExtResource("1_kdhgu")
+
+[node name="FadePanel" parent="." instance=ExtResource("2_hslur")]
+z_index = -1
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="."]
+show_behind_parent = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PartyFrame" type="NinePatchRect" parent="HBox"]
+custom_minimum_size = Vector2(385, 0)
+layout_mode = 2
+texture = ExtResource("1_p3yu8")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="PartyBags" type="TextureRect" parent="HBox/PartyFrame"]
+show_behind_parent = true
+z_index = -2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 375.0
+offset_bottom = 990.0
+texture = ExtResource("2_d4yn1")
+
+[node name="PartyLabel" type="Label" parent="HBox/PartyFrame"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 297.0
+offset_bottom = 46.0
+text = "Your Party's Inventory:"
+horizontal_alignment = 1
+
+[node name="PartyInventory" type="ItemList" parent="HBox/PartyFrame"]
+visible = false
+custom_minimum_size = Vector2(365, 950)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 375.0
+offset_bottom = 990.0
+
+[node name="ShopFrame" type="NinePatchRect" parent="HBox"]
+custom_minimum_size = Vector2(385, 0)
+layout_mode = 2
+texture = ExtResource("1_p3yu8")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="ShopTable" type="TextureRect" parent="HBox/ShopFrame"]
+show_behind_parent = true
+z_index = -2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 375.0
+offset_bottom = 990.0
+texture = ExtResource("3_prgns")
+
+[node name="VBox" type="VBoxContainer" parent="HBox/ShopFrame"]
+visible = false
+custom_minimum_size = Vector2(365, 980)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 375.0
+offset_bottom = 990.0
+
+[node name="SellLabel" type="Label" parent="HBox/ShopFrame/VBox"]
+layout_mode = 2
+text = "Items To Sell:"
+horizontal_alignment = 1
+
+[node name="SellItems" type="ItemList" parent="HBox/ShopFrame/VBox"]
+visible = false
+custom_minimum_size = Vector2(365, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Amounts" type="HBoxContainer" parent="HBox/ShopFrame/VBox"]
+layout_mode = 2
+
+[node name="Funds" type="Label" parent="HBox/ShopFrame/VBox/Amounts"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="HBox/ShopFrame/VBox/Amounts"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="HBox/ShopFrame/VBox"]
+layout_mode = 2
+
+[node name="Finalize" type="Button" parent="HBox/ShopFrame/VBox/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Finalize"
+
+[node name="Haggle" type="Button" parent="HBox/ShopFrame/VBox/Buttons"]
+custom_minimum_size = Vector2(155, 0)
+layout_mode = 2
+text = "Haggle"
+
+[node name="Cancel" type="Button" parent="HBox/ShopFrame/VBox/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Cancel	"
+
+[node name="BuyLabel" type="Label" parent="HBox/ShopFrame/VBox"]
+layout_mode = 2
+text = "Items to Buy:"
+horizontal_alignment = 1
+
+[node name="BuyItems" type="ItemList" parent="HBox/ShopFrame/VBox"]
+visible = false
+custom_minimum_size = Vector2(365, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Merchant" type="NinePatchRect" parent="HBox"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+texture = ExtResource("1_p3yu8")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MerchantImage" type="TextureRect" parent="HBox/Merchant"]
+show_behind_parent = true
+z_index = -2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 740.0
+offset_bottom = 990.0
+texture = ExtResource("4_6uac3")
+
+[node name="ShopLabel" type="Label" parent="HBox/Merchant"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 228.0
+offset_bottom = 46.0
+text = "Merchant's Stock:"
+horizontal_alignment = 1
+
+[node name="ShopStock" type="ItemList" parent="HBox/Merchant"]
+visible = false
+custom_minimum_size = Vector2(365, 950)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 375.0
+offset_bottom = 990.0
+
+[node name="TextBox" parent="HBox/Merchant" instance=ExtResource("7_ohxb0")]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 720.0
+offset_bottom = 188.0
+
+[node name="Time" type="Label" parent="HBox/Merchant/TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="HBox/Merchant/TextBox"]
+custom_minimum_size = Vector2(700, 10)
+layout_mode = 2
+text = "You are at a market stall. You decide to..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="HBox/Merchant/TextBox"]
+layout_mode = 2
+
+[node name="Trade" type="Button" parent="HBox/Merchant/TextBox/Options"]
+layout_mode = 2
+text = "...trade with the merchant."
+flat = true
+alignment = 0
+
+[node name="Leave" type="Button" parent="HBox/Merchant/TextBox/Options"]
+layout_mode = 2
+text = "...exit back to the market."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="HBox/Merchant/TextBox"]
+visible = false
+custom_minimum_size = Vector2(700, 10)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Audio" parent="." instance=ExtResource("9_r264l")]
+stream = null
+
+[connection signal="item_activated" from="HBox/PartyFrame/PartyInventory" to="." method="_on_party_inventory_item_activated"]
+[connection signal="item_activated" from="HBox/ShopFrame/VBox/SellItems" to="." method="_on_sell_items_item_activated"]
+[connection signal="pressed" from="HBox/ShopFrame/VBox/Buttons/Finalize" to="." method="_on_finalize_pressed"]
+[connection signal="pressed" from="HBox/ShopFrame/VBox/Buttons/Haggle" to="." method="_on_haggle_pressed"]
+[connection signal="pressed" from="HBox/ShopFrame/VBox/Buttons/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="item_activated" from="HBox/ShopFrame/VBox/BuyItems" to="." method="_on_buy_items_item_activated"]
+[connection signal="item_activated" from="HBox/Merchant/ShopStock" to="." method="_on_shop_stock_item_activated"]
+[connection signal="item_clicked" from="HBox/Merchant/ShopStock" to="." method="_on_shop_stock_item_clicked"]
+[connection signal="pressed" from="HBox/Merchant/TextBox/Options/Trade" to="." method="_on_trade_pressed"]
+[connection signal="pressed" from="HBox/Merchant/TextBox/Options/Leave" to="." method="_on_leave_pressed"]
