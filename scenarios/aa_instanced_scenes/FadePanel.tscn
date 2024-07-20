@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.498039)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.784314)]
 }
 
 [sub_resource type="Animation" id="Animation_j7pyl"]
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.498039)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_snf00"]
@@ -73,12 +73,12 @@ _data = {
 }
 
 [node name="FadePanel" type="ColorRect"]
-modulate = Color(1, 1, 0, 0.498039)
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1520, 1000)
 layout_direction = 1
 mouse_filter = 2
 
-[node name="FadePlayer" type="AnimationPlayer" parent="."]
+[node name="Player" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_snf00")

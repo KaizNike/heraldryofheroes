@@ -4,9 +4,10 @@ extends TextureRect
 @onready var text_player: AnimationPlayer = get_node("TextBox/TextPlayer")
 
 @onready var is_text_faded_in = true
+@onready var next_scene = null
 
 func _ready():
-	Data.time = 1
+	Data.hour = 1
 	Data.save_game()
 	$TextBox/Time.text = "It is " + Data.get_bell_time()
 	# $TextBox/Intro.text = "You are in Leipzig's Main Street. You decide to..."
@@ -28,10 +29,18 @@ func _unhandled_input(event):
 			fade_in_text()
 			is_text_faded_in = true
 
+func scene_outcome():
+	$TextBox/Outcome.visible = true
+	$Audio/Player.play("fade_out")
+	var options : Array = $TextBox/Options.get_children()
+	for i in options.size():
+		options[i].disabled = true
+		options[i].mouse_filter = MOUSE_FILTER_IGNORE
+
 # Fade in and out functions for scene changes.
 func fade_in_scenery():
 	$FadePanel.visible = true
-	if Data.time > 6 and Data.time < 18:
+	if Data.hour > 6 and Data.hour < 18:
 		texture = load("res://scenarios/leipzig/main_st/MainStDay.jpg")
 		fade_player.play("fade_in_light")
 	else:
@@ -40,7 +49,7 @@ func fade_in_scenery():
 	
 func fade_in_text():
 	$TextBox.visible = true
-	if Data.time > 6 and Data.time < 18:
+	if Data.hour > 6 and Data.hour < 18:
 		fade_player.play("fade_out_light")
 		text_player.play("fade_in_text_dark")
 	else:

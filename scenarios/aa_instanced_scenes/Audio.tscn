@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dna4je6f4puhp"]
 
-[ext_resource type="AudioStream" uid="uid://cwynv8vm2kli" path="res://audio/music/icumen.ogg" id="1_gasbb"]
+[ext_resource type="AudioStream" uid="uid://b5qumbwt2x545" path="res://audio/music/2.ogg" id="1_e3xtl"]
 
 [sub_resource type="Animation" id="Animation_nlx6e"]
-resource_name = "fade_in_music"
+resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,8 +18,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_p0c8j"]
-resource_name = "fade_out_music"
-length = 5.0
+resource_name = "fade_out"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,7 +27,7 @@ tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -80.0]
@@ -35,15 +35,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5sgby"]
 _data = {
-"fade_in_music": SubResource("Animation_nlx6e"),
-"fade_out_music": SubResource("Animation_p0c8j")
+"fade_in": SubResource("Animation_nlx6e"),
+"fade_out": SubResource("Animation_p0c8j")
 }
 
 [node name="Audio" type="AudioStreamPlayer"]
-stream = ExtResource("1_gasbb")
+stream = ExtResource("1_e3xtl")
 volume_db = -80.0
 
-[node name="AudioPlayer" type="AnimationPlayer" parent="."]
+[node name="Player" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5sgby")
 }
