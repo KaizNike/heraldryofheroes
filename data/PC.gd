@@ -2,7 +2,10 @@ extends Node
 
 var dict
 
-func new_dict():
+func _ready():
+	pass
+
+func clear_dict():
 	dict = {
 		"portrait" : null,
 		"first_name" : null,
@@ -78,10 +81,6 @@ func new_dict():
 		"potion_one_slot" : "Empty",
 		"potion_two_slot" : "Empty"
 	}
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func save_dict():
 	return dict
