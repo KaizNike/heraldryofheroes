@@ -31,6 +31,43 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
+[node name="PartyStats" type="VBoxContainer" parent="HBox/PartyStatsFrame"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="Learnings" type="Label" parent="HBox/PartyStatsFrame/PartyStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875702, 0.477074, 0.793166, 1)
+text = "   Learnings"
+
+[node name="Formulae" type="Label" parent="HBox/PartyStatsFrame/PartyStats"]
+layout_mode = 2
+text = "Alchemical Formulae"
+horizontal_alignment = 1
+
+[node name="FormulaeMenu" type="OptionButton" parent="HBox/PartyStatsFrame/PartyStats/Formulae"]
+modulate = Color(1, 0, 1, 0.34902)
+custom_minimum_size = Vector2(350, 30)
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 30.0
+
+[node name="Saints" type="Label" parent="HBox/PartyStatsFrame/PartyStats"]
+layout_mode = 2
+text = "Knowledge of Saints"
+horizontal_alignment = 1
+
+[node name="SaintsMenu" type="OptionButton" parent="HBox/PartyStatsFrame/PartyStats/Saints"]
+modulate = Color(0.937255, 0.882353, 0.607843, 0.313726)
+custom_minimum_size = Vector2(350, 30)
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 20.0
+
 [node name="InventoryFrame" type="NinePatchRect" parent="HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -41,32 +78,29 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="Money" type="Label" parent="HBox/InventoryFrame"]
-layout_mode = 2
-offset_left = 187.0
+[node name="Inventory" type="VBoxContainer" parent="HBox/InventoryFrame"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 10.0
 offset_top = 10.0
-offset_right = 360.0
-offset_bottom = 50.0
+offset_right = 370.0
+offset_bottom = 980.0
+
+[node name="Money" type="Label" parent="HBox/InventoryFrame/Inventory"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "0"
+horizontal_alignment = 1
 
-[node name="InvLabel" type="Label" parent="HBox/InventoryFrame"]
-layout_mode = 1
-offset_left = 127.0
-offset_top = 59.0
-offset_right = 247.0
-offset_bottom = 82.0
+[node name="InvLabel" type="Label" parent="HBox/InventoryFrame/Inventory"]
+layout_mode = 2
 text = "Party Inventory"
 horizontal_alignment = 1
 
-[node name="PartyInventory" type="ItemList" parent="HBox/InventoryFrame" groups=["inventories"]]
+[node name="PartyInventory" type="ItemList" parent="HBox/InventoryFrame/Inventory" groups=["inventories"]]
 custom_minimum_size = Vector2(360, 900)
 layout_mode = 2
-offset_left = 10.0
-offset_top = 85.0
-offset_right = 370.0
-offset_bottom = 85.0
 
 [node name="CharacterFrame" type="NinePatchRect" parent="HBox"]
 layout_mode = 2
@@ -100,35 +134,6 @@ text = "Birthday"
 layout_mode = 2
 text = "Birthplace"
 horizontal_alignment = 1
-
-[node name="Learnings" type="Label" parent="HBox/CharacterFrame/Character"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.875702, 0.477074, 0.793166, 1)
-text = "   Learnings"
-
-[node name="Formulae" type="Label" parent="HBox/CharacterFrame/Character"]
-layout_mode = 2
-text = "Alchemical Formulae"
-horizontal_alignment = 1
-
-[node name="FormulaeMenu" type="OptionButton" parent="HBox/CharacterFrame/Character/Formulae"]
-modulate = Color(1, 0, 1, 0.34902)
-custom_minimum_size = Vector2(350, 30)
-layout_mode = 0
-offset_right = 350.0
-offset_bottom = 30.0
-
-[node name="Saints" type="Label" parent="HBox/CharacterFrame/Character"]
-layout_mode = 2
-text = "Knowledge of Saints"
-horizontal_alignment = 1
-
-[node name="SaintsMenu" type="OptionButton" parent="HBox/CharacterFrame/Character/Saints"]
-modulate = Color(0.937255, 0.882353, 0.607843, 0.313726)
-custom_minimum_size = Vector2(350, 30)
-layout_mode = 0
-offset_right = 45.0
-offset_bottom = 20.0
 
 [node name="Equipment" type="Label" parent="HBox/CharacterFrame/Character"]
 layout_mode = 2
@@ -387,8 +392,8 @@ text = "30"
 layout_mode = 2
 text = "30"
 
-[connection signal="item_activated" from="HBox/InventoryFrame/PartyInventory" to="." method="_on_party_inventory_item_activated" unbinds=1]
-[connection signal="item_selected" from="HBox/InventoryFrame/PartyInventory" to="." method="_on_party_inventory_item_selected"]
+[connection signal="item_activated" from="HBox/InventoryFrame/Inventory/PartyInventory" to="." method="_on_party_inventory_item_activated" unbinds=1]
+[connection signal="item_selected" from="HBox/InventoryFrame/Inventory/PartyInventory" to="." method="_on_party_inventory_item_selected"]
 [connection signal="item_clicked" from="HBox/CharacterFrame/Character/HelmetSlot" to="." method="_on_helmet_slot_item_clicked" unbinds=3]
 [connection signal="item_clicked" from="HBox/CharacterFrame/Character/VestSlot" to="." method="_on_vest_slot_item_clicked" unbinds=3]
 [connection signal="item_clicked" from="HBox/CharacterFrame/Character/LeggingsSlot" to="." method="_on_leggings_slot_item_clicked" unbinds=3]

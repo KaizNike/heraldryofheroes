@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd4u3jw54sxy8"]
+[gd_scene load_steps=6 format=3 uid="uid://dd4u3jw54sxy8"]
 
 [ext_resource type="Script" path="res://main/Main.gd" id="1_ty1ig"]
 [ext_resource type="Texture2D" uid="uid://fuc828eaqhhy" path="res://images/frames/PartyFrame.png" id="2_21rcg"]
 [ext_resource type="Texture2D" uid="uid://cph5way6o3ooi" path="res://images/frames/ScenarioFrame.png" id="3_4y55p"]
 [ext_resource type="PackedScene" uid="uid://ycsuyn14ik31" path="res://main/PCBox.tscn" id="3_lppw4"]
+[ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://scenarios/aa_instanced_scenes/Audio.tscn" id="5_xcv7s"]
 
 [node name="Main" type="MarginContainer"]
 mouse_filter = 2
@@ -122,8 +123,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Music" parent="." instance=ExtResource("5_xcv7s")]
+
 [connection signal="button_down" from="HBox/Party/PC1Frame/PC1" to="." method="_on_pc_1_button_down"]
 [connection signal="button_down" from="HBox/Party/PC2Frame/PC2" to="." method="_on_pc_2_button_down"]
 [connection signal="button_down" from="HBox/Party/PC3Frame/PC3" to="." method="_on_pc_3_button_down"]
 [connection signal="button_down" from="HBox/Party/PC4Frame/PC4" to="." method="_on_pc_4_button_down"]
 [connection signal="button_down" from="HBox/Party/PC5Frame/PC5" to="." method="_on_pc_5_button_down"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

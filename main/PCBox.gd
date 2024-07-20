@@ -16,7 +16,7 @@ func _ready():
 func update_box(player):
 	var pc_button = Main.get_node("HBox/Party/" + player + "Frame/" + player)
 	var pc_data = Data.get_node(player)
-	if first_name.text == null:
+	if pc_data.dict["first_name"] == null:
 		return
 	else:
 		pc_button.portrait.texture = load(pc_data.dict["portrait"])

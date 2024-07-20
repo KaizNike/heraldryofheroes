@@ -1,8 +1,8 @@
 extends TextureRect
 
 #shortcuts for accessing nodes
-@onready var party_stats = get_node("HBox/PartyStatsFrame")
-@onready var party_inventory = get_node("HBox/InventoryFrame/PartyInventory")
+@onready var party_stats = get_node("HBox/PartyStatsFrame/PartyStats")
+@onready var party_inventory = get_node("HBox/InventoryFrame/Inventory/PartyInventory")
 @onready var helmet_slot = get_node("HBox/CharacterFrame/Character/HelmetSlot")
 @onready var vest_slot = get_node("HBox/CharacterFrame/Character/VestSlot")
 @onready var leggings_slot = get_node("HBox/CharacterFrame/Character/LeggingsSlot")
@@ -21,7 +21,7 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("HBox/InventoryFrame/Money").text = str(Data.stats["money"]) + "$"
+	get_node("HBox/InventoryFrame/Inventory/Money").text = str(Data.stats["money"]) + "$"
 	
 	for i in Data.inventory:
 		party_inventory.add_item(Data.inventory[i], null, true)
@@ -122,18 +122,6 @@ func _ready():
 	$HBox/SkillsFrame/Skills/Artifice.text = "Artifice  " + str(player.dict["artifice"])
 	$HBox/SkillsFrame/Skills/Riding.text = "Riding  " + str(player.dict["riding"])
 	$HBox/SkillsFrame/Skills/Woodwise.text = "Woodwise  " + str(player.dict["woodwise"])
-
-#handling keyboard input
-func _unhandled_input(event):
-	if event is InputEventKey and event.is_pressed():
-		get_viewport().set_input_as_handled()
-		
-		#press escape to exit the player character sheet back to the game
-		if event.keycode == KEY_ESCAPE:
-			Main.overlay_scene("res://main/Empty.tscn")
-			#sets all pc buttons on left side to enabled
-			Main.pc_button_disable(0)
-			queue_free()
 
 #select item in party inventory
 func _on_party_inventory_item_selected(index):
@@ -247,7 +235,7 @@ func unequip_item(slot):
 func set_item_tooltip(slot):
 	var item_name = slot.get_item_text(0)
 	if item_name != "Empty":
-		var item_info = Data.get_node("Items").item_dict[item_name]
+		var item_info = Data.get_node("Items").item_dict[item_name.get_slice("@", 0)]
 		var weight = item_info.get_slice("/",0)
 		var value = item_info.get_slice("/",1)
 		slot.set_item_tooltip(0, item_name + "\nWeight: " + weight + "\n" + "Value: " + value)

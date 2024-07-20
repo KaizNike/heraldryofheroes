@@ -11,9 +11,15 @@ extends MarginContainer
 var current_scene = null
 var over_scene = null
 
+var music_select = 1
+
 func _ready():
 	current_scene = frame.get_child(0)
 	over_scene = frame.get_child(1)
+	
+	$Music.stream = load("res://audio/music/" + str(music_select) + ".ogg")
+	$Music.playing = true
+	$Music.volume_db = -20
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
@@ -61,36 +67,35 @@ func _deferred_overlay_scene(path):
 
 	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	#get_tree().set_current_scene(over_scene)
-func _unhandled_key_input(event):
-	if Input.is_key_pressed(KEY_1):
+func _unhandled_key_input(_event):
+	if Input.is_key_pressed(KEY_F1) and pc1.visible:
 		show_sheet(1)
-	elif Input.is_key_pressed(KEY_2):
+	elif Input.is_key_pressed(KEY_F2) and pc2.visible:
 		show_sheet(2)
-	elif Input.is_key_pressed(KEY_3):
+	elif Input.is_key_pressed(KEY_F3) and pc3.visible:
 		show_sheet(3)
-	elif Input.is_key_pressed(KEY_4):
+	elif Input.is_key_pressed(KEY_F4) and pc4.visible:
 		show_sheet(4)
-	elif Input.is_key_pressed(KEY_5):
+	elif Input.is_key_pressed(KEY_F5) and pc5.visible:
 		show_sheet(5)
-	elif Input.is_key_pressed(KEY_F1):
+	elif Input.is_key_pressed(KEY_F6):
 		pc_button_disable(0)
 		overlay_scene("res://main/NotesSheet.tscn")
+	elif Input.is_key_pressed(KEY_ESCAPE):
+		pc_button_disable(0)
+		overlay_scene("res://main/Empty.tscn")
 	else:
 		return
 	get_viewport().set_input_as_handled()
 
 func _on_pc_1_button_down():
 	show_sheet(1)
-	
 func _on_pc_2_button_down():
 	show_sheet(2)
-	
 func _on_pc_3_button_down():
 	show_sheet(3)
-	
 func _on_pc_4_button_down():
 	show_sheet(4)
-	
 func _on_pc_5_button_down():
 	show_sheet(5)
 
@@ -118,21 +123,27 @@ func pc_button_disable(i):
 	else:
 		pass
 
-func pc_button_hide(pc):
-	get_node(pc).visible = false
-
 func update_boxes():
-	if get_node("HBox/Party/PC1Frame/PC1").visible == true:
+	if Data.get_node("PC1").dict["first_name"] != null:
 		get_node("HBox/Party/PC1Frame/PC1").update_box("PC1")
 		
-	if get_node("HBox/Party/PC2Frame/PC2").visible == true:
+	if Data.get_node("PC2").dict["first_name"] != null:
 		get_node("HBox/Party/PC2Frame/PC2").update_box("PC2")
 		
-	if get_node("HBox/Party/PC3Frame/PC3").visible == true:
+	if Data.get_node("PC3").dict["first_name"] != null:
 		get_node("HBox/Party/PC3Frame/PC3").update_box("PC3")
 		
-	if get_node("HBox/Party/PC4Frame/PC4").visible == true:
+	if Data.get_node("PC4").dict["first_name"] != null:
 		get_node("HBox/Party/PC4Frame/PC4").update_box("PC4")
 		
-	if get_node("HBox/Party/PC5Frame/PC5").visible == true:
+	if Data.get_node("PC5").dict["first_name"] != null:
 		get_node("HBox/Party/PC5Frame/PC5").update_box("PC5")
+
+
+func _on_music_finished():
+	music_select += 1
+	if music_select > 4:
+		music_select = 1
+	$Music.stream = load("res://audio/music/" + str(music_select) + ".ogg")
+	$Music.playing = true
+	#$Music/Player.play("fade_in")
