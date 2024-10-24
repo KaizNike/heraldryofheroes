@@ -1,0 +1,711 @@
+[gd_scene load_steps=5 format=3 uid="uid://by0ndk2ly75ja"]
+
+[ext_resource type="Theme" uid="uid://4xakigboy4d4" path="res://themes/gothic_pc_sheet.tres" id="1_ebau0"]
+[ext_resource type="Texture2D" uid="uid://03r83g6kcb5s" path="res://images/interface/pc_sheet_paper.jpg" id="2_yj2jf"]
+[ext_resource type="Script" path="res://main/pc_sheet.gd" id="3_55eye"]
+[ext_resource type="Texture2D" uid="uid://fuc828eaqhhy" path="res://images/interface/party_frame.png" id="4_a7imc"]
+
+[node name="PCSheet" type="TextureRect" groups=["sheets"]]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+mouse_filter = 0
+theme = ExtResource("1_ebau0")
+texture = ExtResource("2_yj2jf")
+script = ExtResource("3_55eye")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1520.0
+offset_bottom = 1000.0
+theme_override_constants/separation = 0
+
+[node name="PartyStatsFrame" type="NinePatchRect" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_a7imc")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PartyStats" type="VBoxContainer" parent="HBox/PartyStatsFrame"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="Notes" type="Button" parent="HBox/PartyStatsFrame/PartyStats"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+tooltip_text = "F6"
+text = "Notes"
+
+[node name="Learnings" type="Label" parent="HBox/PartyStatsFrame/PartyStats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875702, 0.477074, 0.793166, 1)
+text = "   Learnings"
+
+[node name="Formulae" type="Label" parent="HBox/PartyStatsFrame/PartyStats"]
+layout_mode = 2
+text = "Alchemical Formulae"
+horizontal_alignment = 1
+
+[node name="FormulaeMenu" type="OptionButton" parent="HBox/PartyStatsFrame/PartyStats/Formulae"]
+modulate = Color(1, 0, 1, 0.34902)
+custom_minimum_size = Vector2(350, 30)
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 30.0
+
+[node name="Saints" type="Label" parent="HBox/PartyStatsFrame/PartyStats"]
+layout_mode = 2
+text = "Knowledge of Saints"
+horizontal_alignment = 1
+
+[node name="SaintsMenu" type="OptionButton" parent="HBox/PartyStatsFrame/PartyStats/Saints"]
+modulate = Color(0.937255, 0.882353, 0.607843, 0.313726)
+custom_minimum_size = Vector2(350, 30)
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 20.0
+
+[node name="InventoryFrame" type="NinePatchRect" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_a7imc")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Inventory" type="VBoxContainer" parent="HBox/InventoryFrame"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 370.0
+offset_bottom = 980.0
+
+[node name="Money" type="Label" parent="HBox/InventoryFrame/Inventory"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+horizontal_alignment = 1
+
+[node name="InvLabel" type="Label" parent="HBox/InventoryFrame/Inventory"]
+layout_mode = 2
+text = "Party Inventory"
+horizontal_alignment = 1
+
+[node name="PartyInventory" type="ItemList" parent="HBox/InventoryFrame/Inventory" groups=["inventories"]]
+custom_minimum_size = Vector2(360, 900)
+layout_mode = 2
+theme_override_constants/v_separation = 1
+allow_search = false
+
+[node name="CharacterFrame" type="NinePatchRect" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_a7imc")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Character" type="VBoxContainer" parent="HBox/CharacterFrame"]
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 380.0
+offset_bottom = 815.0
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="HBox/CharacterFrame/Character"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Birthday" type="Label" parent="HBox/CharacterFrame/Character"]
+layout_mode = 2
+text = "Birthday"
+
+[node name="Birthplace" type="Label" parent="HBox/CharacterFrame/Character"]
+layout_mode = 2
+text = "Birthplace"
+horizontal_alignment = 1
+
+[node name="Equipment" type="Label" parent="HBox/CharacterFrame/Character"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.343749, 0.678026, 0.897567, 1)
+text = "   Equipment
+"
+
+[node name="Helmet" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Helmet
+"
+horizontal_alignment = 1
+
+[node name="HelmetSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Vest" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Vest
+"
+horizontal_alignment = 1
+
+[node name="VestSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Leggings" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Leggings
+"
+horizontal_alignment = 1
+
+[node name="LeggingsSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MainWeapon" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Main Weapon
+"
+horizontal_alignment = 1
+
+[node name="MainWeaponSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SideArm" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Side Arm
+"
+horizontal_alignment = 1
+
+[node name="SideArmSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Shield" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Shield
+"
+horizontal_alignment = 1
+
+[node name="ShieldSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="RangedWeapon" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Ranged Weapon
+"
+horizontal_alignment = 1
+
+[node name="RangedWeaponSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="PotionOne" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Potion
+"
+horizontal_alignment = 1
+
+[node name="PotionOneSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="PotionTwo" type="Label" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Potion
+"
+horizontal_alignment = 1
+
+[node name="PotionTwoSlot" type="Button" parent="HBox/CharacterFrame/Character"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SkillsFrame" type="NinePatchRect" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_a7imc")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Skills" type="VBoxContainer" parent="HBox/SkillsFrame"]
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 380.0
+offset_bottom = 990.0
+theme_override_constants/separation = -1
+
+[node name="Characteristics" type="Label" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.690196, 0.309804, 1)
+text = "   Characteristics"
+
+[node name="Endurance" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Endurance"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Endurance"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Endurance"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Endurance"]
+layout_mode = 2
+
+[node name="Strength" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Strength"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Strength"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Strength"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Strength"]
+layout_mode = 2
+
+[node name="Agility" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Agility"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Agility"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Agility"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Agility"]
+layout_mode = 2
+
+[node name="Intelligence" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Intelligence"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Intelligence"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Intelligence"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Intelligence"]
+layout_mode = 2
+
+[node name="Perception" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Perception"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Perception"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Perception"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Perception"]
+layout_mode = 2
+
+[node name="Charisma" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Charisma"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Charisma"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Charisma"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Charisma"]
+layout_mode = 2
+
+[node name="Combat" type="Label" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0, 0, 1)
+text = "   Combat Abilities"
+
+[node name="Blade" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Blade"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Blades"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Blade"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Blade"]
+layout_mode = 2
+
+[node name="Impact" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Impact"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Impact Wpns"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Impact"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Impact"]
+layout_mode = 2
+
+[node name="Flail" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Flail"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Flail Wpns"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Flail"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Flail"]
+layout_mode = 2
+
+[node name="Polearm" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Polearm"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Polearms"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Polearm"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Polearm"]
+layout_mode = 2
+
+[node name="Throw" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Throw"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Throwing"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Throw"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Throw"]
+layout_mode = 2
+
+[node name="Bow" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Bow"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Bows"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Bow"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Bow"]
+layout_mode = 2
+
+[node name="Gun" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Gun"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Firearms"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Gun"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Gun"]
+layout_mode = 2
+
+[node name="Shield" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Shield"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Shields"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Shield"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Shield"]
+layout_mode = 2
+
+[node name="Academic" type="Label" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87451, 0.478431, 0.792157, 1)
+text = "   Academic Knowledge"
+
+[node name="Alchemy" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Alchemy"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Alchemy"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Alchemy"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Alchemy"]
+layout_mode = 2
+
+[node name="Heal" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Heal"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Healing"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Heal"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Heal"]
+layout_mode = 2
+
+[node name="Religion" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Religion"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Religion"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Religion"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Religion"]
+layout_mode = 2
+
+[node name="Righteous" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Righteous"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Righteousness"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Righteous"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Righteous"]
+layout_mode = 2
+
+[node name="Latin" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Latin"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Latin"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Latin"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Latin"]
+layout_mode = 2
+
+[node name="ReadWrite" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/ReadWrite"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Read & Write"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/ReadWrite"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/ReadWrite"]
+layout_mode = 2
+
+[node name="Practical" type="Label" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.552941, 0.164706, 1)
+text = "   Practical Skills"
+
+[node name="Speak" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Speak"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Speaking"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Speak"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Speak"]
+layout_mode = 2
+
+[node name="Trade" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Trade"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Trading"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Trade"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Trade"]
+layout_mode = 2
+
+[node name="Streetwise" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Streetwise"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Streetwise"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Streetwise"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Streetwise"]
+layout_mode = 2
+
+[node name="Artifice" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Artifice"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Artifice"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Artifice"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Artifice"]
+layout_mode = 2
+
+[node name="Riding" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Riding"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Riding"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Riding"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Riding"]
+layout_mode = 2
+
+[node name="Woodwise" type="HBoxContainer" parent="HBox/SkillsFrame/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SkillsFrame/Skills/Woodwise"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Woodwise"
+
+[node name="Value" type="Label" parent="HBox/SkillsFrame/Skills/Woodwise"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Change" type="Label" parent="HBox/SkillsFrame/Skills/Woodwise"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="HBox/SkillsFrame"]
+custom_minimum_size = Vector2(40, 40)
+layout_direction = 3
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "X"
+
+[connection signal="pressed" from="HBox/PartyStatsFrame/PartyStats/Notes" to="." method="_on_notes_pressed"]
+[connection signal="item_activated" from="HBox/InventoryFrame/Inventory/PartyInventory" to="." method="_on_party_inventory_item_activated"]
+[connection signal="item_selected" from="HBox/InventoryFrame/Inventory/PartyInventory" to="." method="_on_party_inventory_item_selected"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/HelmetSlot" to="." method="_on_helmet_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/VestSlot" to="." method="_on_vest_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/LeggingsSlot" to="." method="_on_leggings_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/MainWeaponSlot" to="." method="_on_main_weapon_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/SideArmSlot" to="." method="_on_side_arm_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/ShieldSlot" to="." method="_on_shield_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/RangedWeaponSlot" to="." method="_on_ranged_weapon_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/PotionOneSlot" to="." method="_on_potion_one_slot_pressed"]
+[connection signal="pressed" from="HBox/CharacterFrame/Character/PotionTwoSlot" to="." method="_on_potion_two_slot_pressed"]
+[connection signal="pressed" from="HBox/SkillsFrame/Exit" to="." method="_on_exit_pressed"]

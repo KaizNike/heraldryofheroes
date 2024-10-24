@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd4u3jw54sxy8"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_5djx2"]
+[ext_resource type="Texture2D" uid="uid://fuc828eaqhhy" path="res://images/interface/party_frame.png" id="2_hgd3h"]
+[ext_resource type="PackedScene" uid="uid://ycsuyn14ik31" path="res://main/pc_box.tscn" id="3_t6fqu"]
+[ext_resource type="Texture2D" uid="uid://cph5way6o3ooi" path="res://images/interface/scenario_frame.png" id="4_uppg6"]
+[ext_resource type="PackedScene" uid="uid://dna4je6f4puhp" path="res://audio/audio.tscn" id="5_ejc21"]
+
+[node name="Main" type="MarginContainer"]
+mouse_filter = 2
+script = ExtResource("1_5djx2")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Party" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PC1Frame" type="NinePatchRect" parent="HBox/Party"]
+custom_minimum_size = Vector2(0, 216)
+layout_mode = 2
+texture = ExtResource("2_hgd3h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PC1" parent="HBox/Party/PC1Frame" instance=ExtResource("3_t6fqu")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 206.0
+
+[node name="PC2Frame" type="NinePatchRect" parent="HBox/Party"]
+custom_minimum_size = Vector2(0, 216)
+layout_mode = 2
+texture = ExtResource("2_hgd3h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PC2" parent="HBox/Party/PC2Frame" instance=ExtResource("3_t6fqu")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 206.0
+
+[node name="PC3Frame" type="NinePatchRect" parent="HBox/Party"]
+custom_minimum_size = Vector2(0, 216)
+layout_mode = 2
+texture = ExtResource("2_hgd3h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PC3" parent="HBox/Party/PC3Frame" instance=ExtResource("3_t6fqu")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 206.0
+
+[node name="PC4Frame" type="NinePatchRect" parent="HBox/Party"]
+custom_minimum_size = Vector2(0, 216)
+layout_mode = 2
+texture = ExtResource("2_hgd3h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PC4" parent="HBox/Party/PC4Frame" instance=ExtResource("3_t6fqu")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 206.0
+
+[node name="PC5Frame" type="NinePatchRect" parent="HBox/Party"]
+custom_minimum_size = Vector2(0, 216)
+layout_mode = 2
+texture = ExtResource("2_hgd3h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PC5" parent="HBox/Party/PC5Frame" instance=ExtResource("3_t6fqu")]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 206.0
+disabled = true
+
+[node name="Frame" type="NinePatchRect" parent="HBox"]
+custom_minimum_size = Vector2(1600, 1080)
+layout_mode = 2
+texture = ExtResource("4_uppg6")
+draw_center = false
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Empty1" type="Control" parent="HBox/Frame"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Empty2" type="Control" parent="HBox/Frame"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Audio" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Music" parent="Audio" instance=ExtResource("5_ejc21")]
+volume_db = -40.0
+
+[node name="SFX" parent="Audio" instance=ExtResource("5_ejc21")]
+stream = null
+volume_db = -40.0
+
+[connection signal="button_down" from="HBox/Party/PC1Frame/PC1" to="." method="_on_pc_1_button_down"]
+[connection signal="button_down" from="HBox/Party/PC2Frame/PC2" to="." method="_on_pc_2_button_down"]
+[connection signal="button_down" from="HBox/Party/PC3Frame/PC3" to="." method="_on_pc_3_button_down"]
+[connection signal="button_down" from="HBox/Party/PC4Frame/PC4" to="." method="_on_pc_4_button_down"]
+[connection signal="button_down" from="HBox/Party/PC5Frame/PC5" to="." method="_on_pc_5_button_down"]
+[connection signal="finished" from="Audio/Music" to="." method="_on_music_finished"]

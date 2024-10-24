@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://ycsuyn14ik31"]
+
+[ext_resource type="Theme" uid="uid://bd3ekwp8rh17e" path="res://themes/gothic_pc_box.tres" id="1_7dcwi"]
+[ext_resource type="Script" path="res://main/pc_box.gd" id="1_8vsor"]
+[ext_resource type="Texture2D" uid="uid://cmtw5x2xpt1jq" path="res://images/interface/portrait_frame.jpg" id="2_w2075"]
+[ext_resource type="Texture2D" uid="uid://brfnewnwiyu4y" path="res://images/interface/stats_frame.png" id="4_lkae5"]
+[ext_resource type="Texture2D" uid="uid://c3y06vbotdhpy" path="res://images/interface/water_texture.png" id="5_0um75"]
+[ext_resource type="Texture2D" uid="uid://4lnsawxl66cv" path="res://images/interface/blood_texture.png" id="6_phhla"]
+[ext_resource type="Texture2D" uid="uid://b66ia0d4jadgh" path="res://images/interface/blessing_texture.png" id="7_5v2ho"]
+
+[node name="PCBox" type="Button"]
+custom_minimum_size = Vector2(300, 196)
+offset_right = 300.0
+offset_bottom = 196.0
+theme = ExtResource("1_7dcwi")
+theme_override_font_sizes/font_size = 10
+script = ExtResource("1_8vsor")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 196)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="CharBox" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Name" type="Label" parent="HBox/CharBox"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="PortraitFrame" type="NinePatchRect" parent="HBox/CharBox"]
+custom_minimum_size = Vector2(150, 169)
+layout_mode = 2
+texture = ExtResource("2_w2075")
+draw_center = false
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Portrait" type="TextureRect" parent="HBox/CharBox/PortraitFrame"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+size_flags_vertical = 3
+stretch_mode = 4
+
+[node name="StatsBox" type="HBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AlertsBox" type="VBoxContainer" parent="HBox/StatsBox"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="EndBox" type="VBoxContainer" parent="HBox/StatsBox"]
+custom_minimum_size = Vector2(25, 195)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = -1
+
+[node name="EndLabel" type="Label" parent="HBox/StatsBox/EndBox"]
+layout_mode = 2
+text = "end"
+horizontal_alignment = 1
+
+[node name="EndBar" type="TextureProgressBar" parent="HBox/StatsBox/EndBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+max_value = 0.0
+fill_mode = 3
+texture_over = ExtResource("4_lkae5")
+texture_progress = ExtResource("5_0um75")
+
+[node name="EndVal" type="Label" parent="HBox/StatsBox/EndBox"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="StrBox" type="VBoxContainer" parent="HBox/StatsBox"]
+custom_minimum_size = Vector2(25, 195)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = -1
+
+[node name="StrLabel" type="Label" parent="HBox/StatsBox/StrBox"]
+layout_mode = 2
+text = "str"
+horizontal_alignment = 1
+
+[node name="StrBar" type="TextureProgressBar" parent="HBox/StatsBox/StrBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+max_value = 0.0
+fill_mode = 3
+texture_over = ExtResource("4_lkae5")
+texture_progress = ExtResource("6_phhla")
+
+[node name="StrVal" type="Label" parent="HBox/StatsBox/StrBox"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="BlsBox" type="VBoxContainer" parent="HBox/StatsBox"]
+custom_minimum_size = Vector2(25, 195)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = -1
+
+[node name="BlsLabel" type="Label" parent="HBox/StatsBox/BlsBox"]
+layout_mode = 2
+text = "bls"
+horizontal_alignment = 1
+
+[node name="BlsBar" type="TextureProgressBar" parent="HBox/StatsBox/BlsBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+max_value = 0.0
+fill_mode = 3
+texture_over = ExtResource("4_lkae5")
+texture_progress = ExtResource("7_5v2ho")
+
+[node name="BlsVal" type="Label" parent="HBox/StatsBox/BlsBox"]
+layout_mode = 2
+horizontal_alignment = 1
