@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://13quqygm7vj"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_qom0b"]
+[ext_resource type="Script" path="res://scenarios/aa_pc_create/pc_create_first_job.gd" id="2_witot"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_ucukx"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_u5367"]
+
+[node name="PCStartE" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_qom0b")
+script = ExtResource("2_witot")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_ucukx")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_u5367")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 951.0
+offset_bottom = 178.0
+
+[node name="Intro" type="Label" parent="TextBox"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Vagabond" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Guard" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Smith" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Hunter" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Physician" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Church" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Student" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Merchant" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/Vagabond" to="." method="_on_vagabond_pressed"]
+[connection signal="pressed" from="TextBox/Options/Guard" to="." method="_on_guard_pressed"]
+[connection signal="pressed" from="TextBox/Options/Smith" to="." method="_on_smith_pressed"]
+[connection signal="pressed" from="TextBox/Options/Hunter" to="." method="_on_hunter_pressed"]
+[connection signal="pressed" from="TextBox/Options/Physician" to="." method="_on_physician_pressed"]
+[connection signal="pressed" from="TextBox/Options/Church" to="." method="_on_church_pressed"]
+[connection signal="pressed" from="TextBox/Options/Student" to="." method="_on_student_pressed"]
+[connection signal="pressed" from="TextBox/Options/Merchant" to="." method="_on_merchant_pressed"]

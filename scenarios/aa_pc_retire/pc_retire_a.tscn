@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8sriwohg1646"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_v81sv"]
+[ext_resource type="Texture2D" uid="uid://ct5nssax7itwn" path="res://images/interface/blue_background.jpg" id="2_kf4be"]
+[ext_resource type="Script" path="res://scenarios/aa_pc_retire/pc_retire_a.gd" id="3_2unyo"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="4_ffx3e"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="5_hk3ts"]
+
+[node name="PCRetire" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_v81sv")
+texture = ExtResource("2_kf4be")
+script = ExtResource("3_2unyo")
+
+[node name="FadePanel" parent="." instance=ExtResource("4_ffx3e")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("5_hk3ts")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 540.0
+offset_bottom = 158.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+layout_mode = 2
+text = "You consider what he says and decide..."
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Retire" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...to allow him to retire."
+flat = true
+alignment = 0
+
+[node name="InnTable" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...to forget he said anything and return to your previous conversations."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/Retire" to="." method="_on_retire_pressed"]
+[connection signal="pressed" from="TextBox/Options/InnTable" to="." method="_on_inn_table_pressed"]

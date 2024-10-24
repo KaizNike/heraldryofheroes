@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqqdd8bawrfv1"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_nj5ea"]
+[ext_resource type="Script" path="res://scenarios/aa_pc_create/pc_create_childhood.gd" id="2_rslfw"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_m2i5x"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_6b7s4"]
+
+[node name="PCStartB" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_nj5ea")
+script = ExtResource("2_rslfw")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_m2i5x")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_6b7s4")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 951.0
+offset_bottom = 178.0
+
+[node name="Intro" type="Label" parent="TextBox"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Rural" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Urban" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Crafts" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Merchant" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...the child of a wealthy merchant."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/Rural" to="." method="_on_rural_pressed"]
+[connection signal="pressed" from="TextBox/Options/Urban" to="." method="_on_urban_pressed"]
+[connection signal="pressed" from="TextBox/Options/Crafts" to="." method="_on_crafts_pressed"]
+[connection signal="pressed" from="TextBox/Options/Merchant" to="." method="_on_merchant_pressed"]

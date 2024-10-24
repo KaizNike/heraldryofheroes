@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://3qq5i7pr63c3"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_l7ovi"]
+[ext_resource type="Script" path="res://scenarios/aa_pc_create/pc_create_mother.gd" id="2_3sxgr"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_xwfky"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_samwc"]
+
+[node name="PCStartC" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_l7ovi")
+script = ExtResource("2_3sxgr")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_xwfky")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_samwc")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 951.0
+offset_bottom = 178.0
+
+[node name="Intro" type="Label" parent="TextBox"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Mother1" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Mother2" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Mother3" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Mother4" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/Mother1" to="." method="_on_mother_1_pressed"]
+[connection signal="pressed" from="TextBox/Options/Mother2" to="." method="_on_mother_2_pressed"]
+[connection signal="pressed" from="TextBox/Options/Mother3" to="." method="_on_mother_3_pressed"]
+[connection signal="pressed" from="TextBox/Options/Mother4" to="." method="_on_mother_4_pressed"]

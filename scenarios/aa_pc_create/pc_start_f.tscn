@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkw4vv4m6s7bj"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_gn57f"]
+[ext_resource type="Script" path="res://scenarios/aa_pc_create/pc_start_f.gd" id="2_2wlwx"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_ibnrn"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_bs6yf"]
+
+[node name="PCStartF" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_gn57f")
+script = ExtResource("2_2wlwx")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_ibnrn")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_bs6yf")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 951.0
+offset_bottom = 178.0
+
+[node name="Intro" type="Label" parent="TextBox"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Career" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Vagabond" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Guard" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Smith" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Hunter" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Physician" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Monk" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Student" type="Button" parent="TextBox/Options"]
+visible = false
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+autowrap_mode = 2
