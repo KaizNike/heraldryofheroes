@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://bodthu7citvyo"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_jvaq5"]
+[ext_resource type="Script" path="res://scenarios/leipzig/inn_table/inn_table.gd" id="2_snxig"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_euuwn"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_3aung"]
+
+[node name="InnTable" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_jvaq5")
+script = ExtResource("2_snxig")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_euuwn")]
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_3aung")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1210.0
+offset_bottom = 157.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are all seated at a table at the inn in deep conversation about the future of the party . You observe..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="RecruitPC" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...someone sitting at a nearby table glancing in your direction."
+flat = true
+alignment = 0
+
+[node name="RetirePC1" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="RetirePC2" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="RetirePC3" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="RetirePC4" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="RetirePC5" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+flat = true
+alignment = 0
+
+[node name="Inn" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...your companions are looking around, eager to leave."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/RecruitPC" to="." method="_on_recruit_pc_pressed"]
+[connection signal="pressed" from="TextBox/Options/RetirePC1" to="." method="_on_retire_pc_1_pressed"]
+[connection signal="pressed" from="TextBox/Options/RetirePC2" to="." method="_on_retire_pc_2_pressed"]
+[connection signal="pressed" from="TextBox/Options/RetirePC3" to="." method="_on_retire_pc_3_pressed"]
+[connection signal="pressed" from="TextBox/Options/RetirePC4" to="." method="_on_retire_pc_4_pressed"]
+[connection signal="pressed" from="TextBox/Options/RetirePC5" to="." method="_on_retire_pc_5_pressed"]
+[connection signal="pressed" from="TextBox/Options/Inn" to="." method="_on_inn_pressed"]

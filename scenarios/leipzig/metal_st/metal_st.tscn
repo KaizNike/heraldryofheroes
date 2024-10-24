@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckgg5wxounfx"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_j7j6s"]
+[ext_resource type="Texture2D" uid="uid://c7ieksoqxhkwu" path="res://scenarios/leipzig/metal_st/metal_st_sd.jpg" id="2_a758t"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_brnmk"]
+[ext_resource type="Script" path="res://scenarios/leipzig/metal_st/metal_st.gd" id="3_vi4x7"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_ph7f7"]
+
+[node name="Metalworkers" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_j7j6s")
+texture = ExtResource("2_a758t")
+script = ExtResource("3_vi4x7")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_brnmk")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_ph7f7")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1210.0
+offset_bottom = 297.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are amongst the workshops of the city's blacksmiths and arms makers. Taking a look around you decide to enter..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Blacksmith" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...a blacksmith's shop."
+flat = true
+alignment = 0
+
+[node name="Swordsmith" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...the swordsmith's shop."
+flat = true
+alignment = 0
+
+[node name="Armorer" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...the armorer's shop."
+flat = true
+alignment = 0
+
+[node name="SideSt" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...a lane leading back to the side street."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/SideSt" to="." method="_on_side_st_pressed"]
