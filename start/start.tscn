@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc2dl7argmdq7"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_0y6c5"]
+[ext_resource type="Texture2D" uid="uid://bcbd3r42i54by" path="res://start/start_background.jpg" id="2_xlytk"]
+[ext_resource type="Script" path="res://start/start.gd" id="3_0i7ns"]
+[ext_resource type="Texture2D" uid="uid://bnxmxkx3aeldj" path="res://start/openartai_logo.png" id="4_430lc"]
+[ext_resource type="Texture2D" uid="uid://csndv4761iiy7" path="res://start/hoh_logo.png" id="5_qpgq8"]
+
+[node name="Start" type="TextureRect"]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0y6c5")
+texture = ExtResource("2_xlytk")
+script = ExtResource("3_0i7ns")
+
+[node name="Menu" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 500.0
+offset_right = 1290.0
+offset_bottom = 700.0
+theme_override_constants/separation = 20
+
+[node name="Continue" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+text = "Load Game"
+
+[node name="OpenartaiLogo" type="Sprite2D" parent="."]
+position = Vector2(1446, 332)
+texture = ExtResource("4_430lc")
+
+[node name="HohLogo" type="Sprite2D" parent="."]
+position = Vector2(947, 210)
+texture = ExtResource("5_qpgq8")
+
+[connection signal="button_down" from="Menu/Continue" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="Menu/NewGame" to="." method="_on_new_game_button_down"]

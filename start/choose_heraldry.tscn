@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=3 uid="uid://bjth53rko1658"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_14gek"]
+[ext_resource type="Script" path="res://start/choose_heraldry.gd" id="2_ikkgw"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_o3jmv"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_6f334"]
+[ext_resource type="Texture2D" uid="uid://cu4pv7u17w6st" path="res://images/heraldry/heraldry1.png" id="5_8kgvk"]
+[ext_resource type="Texture2D" uid="uid://d2v8v4sl8r8kn" path="res://images/heraldry/heraldry2.png" id="6_lyook"]
+[ext_resource type="Texture2D" uid="uid://mr3yaxebfh05" path="res://images/heraldry/heraldry3.png" id="7_o2b7g"]
+[ext_resource type="Texture2D" uid="uid://d3b78nvjlpcjy" path="res://images/heraldry/heraldry4.png" id="8_cpg0r"]
+[ext_resource type="Texture2D" uid="uid://6sbrduersu4l" path="res://images/heraldry/heraldry5.png" id="9_cy38n"]
+[ext_resource type="Texture2D" uid="uid://gmtjta72qv2j" path="res://images/heraldry/heraldry6.png" id="10_60ndy"]
+[ext_resource type="Texture2D" uid="uid://cprnv0qppabca" path="res://images/heraldry/heraldry7.png" id="11_0geh6"]
+[ext_resource type="Texture2D" uid="uid://lg8xu678n2st" path="res://images/heraldry/heraldry8.png" id="12_numjr"]
+[ext_resource type="Texture2D" uid="uid://ctped4frt8u8d" path="res://images/heraldry/heraldry9.png" id="13_rs66l"]
+[ext_resource type="Texture2D" uid="uid://c2x7fw4xx6s7k" path="res://images/heraldry/heraldry10.png" id="14_xfld2"]
+[ext_resource type="Texture2D" uid="uid://dnfolce7igfjq" path="res://images/heraldry/heraldry11.png" id="15_2rlau"]
+[ext_resource type="Texture2D" uid="uid://cxsblwpj5ixko" path="res://images/heraldry/heraldry12.png" id="16_xecue"]
+
+[node name="PCStartA" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_14gek")
+script = ExtResource("2_ikkgw")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_o3jmv")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_6f334")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 951.0
+offset_bottom = 178.0
+
+[node name="Intro" type="Label" parent="TextBox"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Row1" type="HBoxContainer" parent="TextBox/Options"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Heraldry1" type="Button" parent="TextBox/Options/Row1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("5_8kgvk")
+
+[node name="Heraldry2" type="Button" parent="TextBox/Options/Row1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("6_lyook")
+
+[node name="Heraldry3" type="Button" parent="TextBox/Options/Row1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("7_o2b7g")
+
+[node name="Heraldry4" type="Button" parent="TextBox/Options/Row1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("8_cpg0r")
+
+[node name="Row2" type="HBoxContainer" parent="TextBox/Options"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Heraldry5" type="Button" parent="TextBox/Options/Row2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("9_cy38n")
+
+[node name="Heraldry6" type="Button" parent="TextBox/Options/Row2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("10_60ndy")
+
+[node name="Heraldry7" type="Button" parent="TextBox/Options/Row2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("11_0geh6")
+
+[node name="Heraldry8" type="Button" parent="TextBox/Options/Row2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("12_numjr")
+
+[node name="Row3" type="HBoxContainer" parent="TextBox/Options"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Heraldry9" type="Button" parent="TextBox/Options/Row3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("13_rs66l")
+
+[node name="Heraldry10" type="Button" parent="TextBox/Options/Row3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("14_xfld2")
+
+[node name="Heraldry11" type="Button" parent="TextBox/Options/Row3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("15_2rlau")
+
+[node name="Heraldry12" type="Button" parent="TextBox/Options/Row3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("16_xecue")
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/Row1/Heraldry1" to="." method="_on_heraldry_1_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row1/Heraldry2" to="." method="_on_heraldry_2_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row1/Heraldry3" to="." method="_on_heraldry_3_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row1/Heraldry4" to="." method="_on_heraldry_4_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row2/Heraldry5" to="." method="_on_heraldry_5_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row2/Heraldry6" to="." method="_on_heraldry_6_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row2/Heraldry7" to="." method="_on_heraldry_7_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row2/Heraldry8" to="." method="_on_heraldry_8_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row3/Heraldry9" to="." method="_on_heraldry_9_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row3/Heraldry10" to="." method="_on_heraldry_10_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row3/Heraldry11" to="." method="_on_heraldry_11_pressed"]
+[connection signal="pressed" from="TextBox/Options/Row3/Heraldry12" to="." method="_on_heraldry_12_pressed"]
