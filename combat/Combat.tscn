@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://rytaoukkthyp"]
-
-[ext_resource type="Script" path="res://combat/Combat.gd" id="1_ihn0w"]
-
-[node name="Combat" type="TextureRect"]
-script = ExtResource("1_ihn0w")
