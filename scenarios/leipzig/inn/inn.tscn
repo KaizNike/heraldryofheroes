@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddptjrk1isrdh"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_mwsba"]
+[ext_resource type="Script" path="res://scenarios/leipzig/inn/inn.gd" id="2_a0uvg"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_aji25"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_sa755"]
+
+[node name="Inn" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_mwsba")
+script = ExtResource("2_a0uvg")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_aji25")]
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_sa755")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1210.0
+offset_bottom = 157.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are at the Gasthaus. While here you..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="MainSt" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...walk out to the main street of Leipzig."
+flat = true
+alignment = 0
+
+[node name="InnTable" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...take a seat at the table to discuss the composition of the party."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/MainSt" to="." method="_on_main_st_pressed"]
+[connection signal="pressed" from="TextBox/Options/InnTable" to="." method="_on_inn_table_pressed"]

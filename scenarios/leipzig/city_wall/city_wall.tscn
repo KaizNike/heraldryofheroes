@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://djeuclcujyfn1"]
+
+[ext_resource type="Theme" uid="uid://d4lygjei3ld2f" path="res://themes/gothic_scenario.tres" id="1_lg8xg"]
+[ext_resource type="Script" path="res://scenarios/leipzig/city_wall/city_wall.gd" id="2_i0d4c"]
+[ext_resource type="PackedScene" uid="uid://bdtq7xo1dfigb" path="res://scenarios/aa_fade_panels/fade_panel.tscn" id="3_qnxoc"]
+[ext_resource type="PackedScene" uid="uid://d3bii8k8584d" path="res://scenarios/aa_fade_panels/text_box.tscn" id="4_gbr3y"]
+
+[node name="CityWall" type="TextureRect"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 1040.0
+theme = ExtResource("1_lg8xg")
+script = ExtResource("2_i0d4c")
+
+[node name="FadePanel" parent="." instance=ExtResource("3_qnxoc")]
+visible = false
+layout_mode = 0
+
+[node name="TextBox" parent="." instance=ExtResource("4_gbr3y")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1719.0
+offset_bottom = 344.0
+
+[node name="Time" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[node name="Intro" type="Label" parent="TextBox"]
+custom_minimum_size = Vector2(1200, 10)
+layout_mode = 2
+text = "You are at the foot of Leipzig's city walls away from the bustling crowds. You notice..."
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="GateInside" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+text = "...a narrow laneway wending back to the main gate."
+flat = true
+alignment = 0
+
+[node name="AllClimb" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...some footholds in the walls which you can attempt to climb."
+flat = true
+alignment = 0
+
+[node name="OneClimb" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...some footholds which the most agile climber in your party can climb and then pass down a rope to allow the remainder of the party to climb."
+flat = true
+alignment = 0
+
+[node name="GrapplingHook" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...a rail at the top of the wall which the best thrower in your party targets with a grappling hook tied to a rope."
+flat = true
+alignment = 0
+
+[node name="Sewer" type="Button" parent="TextBox/Options"]
+layout_mode = 2
+disabled = true
+text = "...a filthy sewer drain leading under the wall, just large enough for a person to fit through."
+flat = true
+alignment = 0
+
+[node name="Outcome" type="Label" parent="TextBox"]
+layout_mode = 2
+
+[connection signal="pressed" from="TextBox/Options/GateInside" to="." method="_on_gate_inside_pressed"]
