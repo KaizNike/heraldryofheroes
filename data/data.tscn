@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cijj6wbdg757g"]
+
+[ext_resource type="Script" path="res://data/data.gd" id="1_osmwg"]
+[ext_resource type="Script" path="res://data/party.gd" id="2_bj3rn"]
+[ext_resource type="Script" path="res://data/items.gd" id="3_ostdh"]
+[ext_resource type="Script" path="res://data/pc.gd" id="4_bmokn"]
+[ext_resource type="Script" path="res://data/npc.gd" id="4_cqgd1"]
+[ext_resource type="Script" path="res://data/world.gd" id="6_dahxy"]
+
+[node name="Data" type="Node"]
+script = ExtResource("1_osmwg")
+
+[node name="Party" type="Node" parent="."]
+script = ExtResource("2_bj3rn")
+
+[node name="PC1" type="Node" parent="."]
+script = ExtResource("4_bmokn")
+
+[node name="PC2" type="Node" parent="."]
+script = ExtResource("4_bmokn")
+
+[node name="PC3" type="Node" parent="."]
+script = ExtResource("4_bmokn")
+
+[node name="PC4" type="Node" parent="."]
+script = ExtResource("4_bmokn")
+
+[node name="PC5" type="Node" parent="."]
+script = ExtResource("4_bmokn")
+
+[node name="NPC" type="Node" parent="."]
+script = ExtResource("4_cqgd1")
+
+[node name="Items" type="Node" parent="."]
+script = ExtResource("3_ostdh")
+
+[node name="World" type="Node" parent="."]
+script = ExtResource("6_dahxy")
