@@ -238,7 +238,7 @@ func scene_outcome():
 	if pc_data.dict["age"] < 25:
 		next_scene = "res://scenarios/leipzig/inn_table/inn_table.tscn"
 	else:
-		next_scene = "res://start/pc_start_f.tscn"
+		next_scene = "res://scenarios/aa_pc_create/pc_start_f.tscn"
 	$TextBox/Outcome.text += party_dict["prev_outcome"]
 	$TextBox/Outcome.visible = true
 	var options : Array = $TextBox/Options.get_children()
