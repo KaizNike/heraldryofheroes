@@ -65,7 +65,7 @@ layout_mode = 2
 flat = true
 alignment = 0
 
-[node name="Monk" type="Button" parent="TextBox/Options"]
+[node name="Church" type="Button" parent="TextBox/Options"]
 visible = false
 layout_mode = 2
 flat = true
