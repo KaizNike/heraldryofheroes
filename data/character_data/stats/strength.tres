@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Statistic" load_steps=2 format=3 uid="uid://bmbkej37us6jy"]
+
+[ext_resource type="Script" path="res://data/character_data/stat.gd" id="1_djnsc"]
+
+[resource]
+script = ExtResource("1_djnsc")
+stat_name = ""
+stat_max = 0
+stat_value = 0
+stat_change = 0
+affecting_age = 0

@@ -16,6 +16,8 @@ var return_scene = null #used when a common scenario like pc_create needs to ret
 var music_select = 1 #music tracks are given a number, which the audiostream plays in sequence
 var party_count = 0 #the number of people in the party
 
+signal ui_update
+
 func _ready():
 	current_scene = frame.get_child(0)
 	over_scene = frame.get_child(1)
