@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_djnsc")
-stat_name = ""
+stat_name = "strength"
 stat_max = 0
 stat_value = 0
 stat_change = 0
-affecting_age = 0
+affecting_age = 30

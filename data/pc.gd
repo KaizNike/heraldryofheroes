@@ -1,6 +1,14 @@
 extends Node
 
 var dict: Dictionary = {}
+@onready var stats: Array[Statistic] = [
+	preload("res://data/character_data/stats/endurance.tres"),
+	preload("res://data/character_data/stats/strength.tres"),
+	preload("res://data/character_data/stats/agility.tres"),
+	preload("res://data/character_data/stats/intelligence.tres"),
+	preload("res://data/character_data/stats/perception.tres"),
+	preload("res://data/character_data/stats/charisma.tres")
+]
 
 enum Health {OKAY, UNCONSCIOUS, DEAD}
 

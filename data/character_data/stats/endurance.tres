@@ -8,4 +8,4 @@ stat_name = "endurance"
 stat_max = 0
 stat_value = 0
 stat_change = 0
-affecting_age = 0
+affecting_age = 35
